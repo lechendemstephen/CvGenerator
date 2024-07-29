@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+
 <body>
+     <label><b>Name: </b> </label>
     <h2> {{ user_profile.name }} </h2>
+    <label><b>Email: </b> </label>
     <h2> {{ user_profile.email }} </h2>
+    <label> <b> Phone:</b> </label>
     <h2> {{ user_profile.phone }} </h2>
     <hr/>
     <br/>
-    <p>Summary</p>
+    <p><b>Summary<b/></p>
     <p>{{ user_profile.summary }}</p>
     <p>Skills</p>
     <p>{{ user_profile.skills }}</p>
-    <p>Education</p>
+    <p><b>Education</b></p>
     <ul>
         <li> {{ user_profile.school }}</li>
         <li> {{ user_profile.university }}</li>
@@ -25,4 +22,3 @@
   
     
 </body>
-</html>

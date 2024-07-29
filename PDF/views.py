@@ -31,13 +31,15 @@ def home(request):
         else: 
             messages.error(request, 'Fill All fields')
 
-    return render(request, 'pdf/accept.html')
+    return render(request, 'pdf/accept.html', {
+        'home_page': 'active'
+    })
 
 
 def resume(request, id): 
     user_profile = Profile.objects.get(pk=id)
 
-    tremplate = loader.get_template('pdf/resume.html')
+    template = loader.get_template('pdf/resume.html')
     html = template.render({'user_profile': user_profile})
     options = {
         'page-size': 'Letter',
@@ -49,5 +51,15 @@ def resume(request, id):
     response = HttpResponse(pdf, content_type='application/pdf')
     response['content-Disposition'] = 'attachment'
     filename = 'resume.pdf'
-    
+
     return  response
+
+def cv(request):
+    cv = Profile.objects.all()
+
+    context = {
+        'cv_bar': 'active',
+        'cv': cv,
+    }
+
+    return render(request, 'pdf/cv.html', context)
